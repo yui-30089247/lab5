@@ -44,6 +44,15 @@ int count_nodes(Node *head) {
     return count;
 }
 
+bool contains(Node *head, int target) {
+    for (Node *cur = head; cur != nullptr; cur = cur->next) {
+        if ((cur->value) == target) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int main() {
     Node *head = nullptr;
     Node *newNode = new Node;
@@ -56,4 +65,14 @@ int main() {
 
     print_list(head);
     cout << "Count: " << count_nodes(head) << endl;
+
+    head = remove_head(head);
+    print_list(head);
+    head = remove_head(head);
+    print_list(head);
+
+    cout << "Count: " << count_nodes(head) << endl;
+
+    cout << "Contains 40? " << contains(head, 40) << endl;
+    cout << "Contains? 90? " << contains(head, 90) << endl;
 }
